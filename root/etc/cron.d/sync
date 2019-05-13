@@ -1,0 +1,2 @@
+# run sync
+0 5 * * * root /config/sync.sh 2>&1 >> /config/logs/log.txt && chown abc:abc /config/logs/log.txt
