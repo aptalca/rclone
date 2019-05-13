@@ -5,10 +5,11 @@ LABEL maintainer="aptalca"
 RUN \
  apt-get update && \
  apt-get install -y \
-	logrotate \
-	rclone && \
+	logrotate && \
  echo "**** fix logrotate ****" && \
  sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
+ echo "**** install rclone ****" && \
+ curl https://rclone.org/install.sh | bash && \
  echo "**** create rclone.conf symlink ****" && \
  mkdir -p /root/.config/rclone && \
  ln -s /config/rclone.conf /root/.config/rclone/rclone.conf && \
