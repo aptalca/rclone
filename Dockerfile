@@ -2,7 +2,7 @@ FROM lsiobase/ubuntu:bionic
 
 LABEL maintainer="aptalca"
 
-ENV HOME="/config"
+ENV XDG_CONFIG_HOME="/config"
 
 RUN \
  apt-get update && \
@@ -13,9 +13,6 @@ RUN \
  sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
  echo "**** install rclone ****" && \
  curl https://rclone.org/install.sh | bash && \
- echo "**** create rclone.conf symlink ****" && \
- mkdir -p /root/.config/rclone && \
- ln -s /config/rclone.conf /root/.config/rclone/rclone.conf && \
  echo "**** clean up ****" && \
  rm -rf \
 	/tmp/* \
