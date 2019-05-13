@@ -5,7 +5,8 @@ LABEL maintainer="aptalca"
 RUN \
  apt-get update && \
  apt-get install -y \
-	logrotate && \
+	logrotate \
+	unzip && \
  echo "**** fix logrotate ****" && \
  sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
  echo "**** install rclone ****" && \
