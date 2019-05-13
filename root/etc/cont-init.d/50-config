@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bash
+
+# create folders
+mkdir -p \
+	/config/logs
+
+if [ ! -f "/config/sync.sh" ]; then
+	echo "copying default sync script"
+	cp /app/sync.sh /config/
+else
+	echo "using existing sync script"
+fi
+
+# permissions
+chown -R abc:abc \
+	/config
