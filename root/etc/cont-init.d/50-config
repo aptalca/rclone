@@ -11,6 +11,9 @@ else
 	echo "using existing sync script"
 fi
 
+# attempt to upgrade rclone
+curl https://rclone.org/install.sh | bash
+
 # permissions
 chown -R abc:abc \
 	/config
