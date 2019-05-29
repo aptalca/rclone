@@ -9,8 +9,6 @@ RUN \
  apt-get install -y \
 	logrotate \
 	unzip && \
- echo "**** fix logrotate ****" && \
- sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
  echo "**** install rclone ****" && \
  curl https://rclone.org/install.sh | bash && \
  echo "**** clean up ****" && \
