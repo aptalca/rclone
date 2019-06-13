@@ -2,7 +2,7 @@
 
 # create folders
 mkdir -p \
-	/config/logs
+	/config/{logs,logrotate}
 
 if [ ! -f "/config/sync.sh" ]; then
 	echo "copying default sync script"
