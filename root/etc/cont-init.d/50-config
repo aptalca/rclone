@@ -2,7 +2,7 @@
 
 # create folders
 mkdir -p \
-	/config/{logs,logrotate}
+	/config/{logs,logrotate,crontab}
 
 if [ ! -f "/config/sync.sh" ]; then
 	echo "copying default sync script"
@@ -10,6 +10,11 @@ if [ ! -f "/config/sync.sh" ]; then
 else
 	echo "using existing sync script"
 fi
+
+[[ ! -f "/config/crontab/sync" ]] && \
+	echo -e "# run sync\n0 5 * * * root /config/sync.sh 2>&1 >> /config/logs/log.txt && chown abc:abc /config/logs/log.txt" > /config/crontab/sync
+
+cp /config/crontab/sync /etc/cron.d/
 
 # attempt to upgrade rclone
 curl https://rclone.org/install.sh | bash
