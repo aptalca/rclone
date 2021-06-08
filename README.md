@@ -12,11 +12,11 @@ Map the volumes or paths
 It can be used for one shot commandline operations, or the container can be left running, and a cron script will execute rclone commands.  
 
 Oneshot example:  
-`docker run --rm -it -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -v /home/aptalca/rclone:/config aptalca/rclone s6-setuidgid abc rclone config`  
+`docker run --rm -it -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -v /home/aptalca/rclone:/config ghcr.io/aptalca/rclone s6-setuidgid abc rclone config`  
 
 Running example:  
 To start:  
-`docker run -d --rm --name=rclone -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -v /home/aptalca/rclone:/config aptalca/rclone`  
+`docker run -d --rm --name=rclone -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -v /home/aptalca/rclone:/config ghcr.io/aptalca/rclone`  
 Execute commands in a running container:  
 `docker exec -it rclone s6-setuidgid abc rclone config`  
 Or you can edit the file `/config/sync.sh` to create rclone commands and edit the file `/config/crontab/sync` to schedule its run (runs at 5am everyday by default)  
