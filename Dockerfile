@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
+FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute
 
 LABEL maintainer="aptalca"
 
